@@ -76,6 +76,24 @@
                               "mountpoint": "/.snapshots",
                               "name": "@.snapshots",
                               "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/opt/aur",
+                              "name": "@aur",
+                              "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/var/lib/docker",
+                              "name": "@docker",
+                              "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/var/lib/libvirt",
+                              "name": "@virtd",
+                              "nodatacow": false
                           }
                       ],
                       "dev_path": null,

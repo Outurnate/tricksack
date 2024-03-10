@@ -22,35 +22,17 @@ fetch_from_zip() {
 
 pushd $OUTPUT/lin/64 > /dev/null || exit
 fetch pwnkit https://github.com/ly4k/PwnKit/raw/main/PwnKit
-fetch linpeas https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_amd64
 popd > /dev/null || exit
 
 pushd $OUTPUT/lin/32 > /dev/null || exit
 fetch pwnkit https://github.com/ly4k/PwnKit/raw/main/PwnKit32
-fetch linpeas https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_386
-popd > /dev/null || exit
-
-pushd $OUTPUT/lin/shell > /dev/null || exit
-fetch linpeas.sh https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh
 popd > /dev/null || exit
 
 pushd $OUTPUT/win/64 > /dev/null || exit
-fetch winpeas.exe https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx64.exe
-fetch mimikatz.exe "https://gitlab.com/kalilinux/packages/mimikatz/-/raw/kali/master/x64/mimikatz.exe?ref_type=heads&inline=false"
-fetch_from_zip psexec.exe https://download.sysinternals.com/files/PSTools.zip PsExec64.exe
 fetch_from_zip ligolo.exe https://github.com/nicocha30/ligolo-ng/releases/download/v0.5.2/ligolo-ng_agent_0.5.2_windows_amd64.zip agent.exe
 popd > /dev/null || exit
 
-pushd $OUTPUT/win/32 > /dev/null || exit
-fetch winpeas.exe https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx86.exe
-fetch mimikatz.exe "https://gitlab.com/kalilinux/packages/mimikatz/-/raw/kali/master/Win32/mimikatz.exe?ref_type=heads&inline=false"
-fetch_from_zip psexec.exe https://download.sysinternals.com/files/PSTools.zip PsExec.exe
-popd > /dev/null || exit
-
 pushd $OUTPUT/win/shell > /dev/null || exit
-fetch winpeas.bat https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEAS.bat
-fetch powerview.ps1 https://github.com/PowerShellMafia/PowerSploit/raw/master/Recon/PowerView.ps1
-fetch powerup.ps1 https://github.com/PowerShellMafia/PowerSploit/raw/master/Privesc/PowerUp.ps1
 fetch powercat.ps1 https://github.com/besimorhino/powercat/raw/master/powercat.ps1
 popd > /dev/null || exit
 
@@ -72,7 +54,27 @@ popd > /dev/null || exit
 
 cp src/PwnKit.sh $OUTPUT/lin/shell/pwnkit.sh
 cp src/gameoverlay.sh $OUTPUT/lin/shell/gameoverlay.sh
-cp /usr/lib/bloodhound/resources/app/Collectors/SharpHound.ps1 $OUTPUT/win/shell/sharphound.ps1
+
+cp /usr/share/windows/peass/winPEASx64.exe $OUTPUT/win/64/winpeas.exe
+cp /usr/share/windows/mimikatz/Win32/mimikatz.exe $OUTPUT/win/64/mimikatz.exe
+cp /usr/share/windows/windows-binaries/nc.exe $OUTPUT/win/64/nc.exe
+cp /usr/share/windows/sysinternals-suite/psexec64.exe $OUTPUT/win/64/psexec.exe
+cp /usr/share/windows/sysinternals-suite/psloggedon64.exe $OUTPUT/win/64/psloggedon.exe
+
+cp /usr/share/windows/peass/winPEASx86.exe $OUTPUT/win/32/winpeas.exe
+cp /usr/share/windows/mimikatz/Win32/mimikatz.exe $OUTPUT/win/32/mimikatz.exe
+cp /usr/share/windows/windows-binaries/nc.exe $OUTPUT/win/32/nc.exe
+cp /usr/share/windows/sysinternals-suite/psexec.exe $OUTPUT/win/32/psexec.exe
+cp /usr/share/windows/sysinternals-suite/psloggedon.exe $OUTPUT/win/32/psloggedon.exe
+
+cp /usr/share/windows/peass/winPEAS.bat $OUTPUT/win/shell/winpeas.bat
+cp /usr/share/windows/powersploit/Recon/PowerView.ps1 $OUTPUT/win/shell/powerview.ps1
+cp /usr/share/windows/powersploit/Privesc/PowerUp.ps1 $OUTPUT/win/shell/powerup.ps1
+cp /usr/share/bloodhound/Collectors/SharpHound.ps1 $OUTPUT/win/shell/sharphound.ps1
+
+cp /usr/share/peass/linPEAS/linpeas_linux_amd64 $OUTPUT/lin/64/linpeas
+cp /usr/share/peass/linPEAS/linpeas_linux_386 $OUTPUT/lin/32/linpeas
+cp /usr/share/peass/linPEAS/linpeas.sh $OUTPUT/lin/shell/linpeas.sh
 
 chmod -R +x $OUTPUT/lin
 

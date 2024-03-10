@@ -23,7 +23,7 @@ sudo --user aur /opt/aur/.cargo/bin/rua install $(xargs < /root/aur.txt)
 
 # CONFIGURE THE SYSTEM
 
-systemctl enable sddm.service nginx.service sshd.service docker.socket
+systemctl enable sddm.service nginx.service sshd.service
 setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
 cp nginx.conf /etc/nginx/nginx.conf
 wordlistctl fetch \* -g usernames passwords discovery fuzzing misc

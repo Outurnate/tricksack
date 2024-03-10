@@ -96,8 +96,12 @@ chezmoi
 starship
 gitdump
 docker
+docker-buildx
 dotnet-sdk
 cmake
 meson
 ninja
 unzip
+tree
+zip
+wget
