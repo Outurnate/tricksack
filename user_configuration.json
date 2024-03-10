@@ -1,0 +1,177 @@
+{
+  "additional-repositories": [
+      "multilib"
+  ],
+  "archinstall-language": "English",
+  "audio_config": {
+      "audio": "pipewire"
+  },
+  "bootloader": "Grub",
+  "config_version": "2.7.1",
+  "debug": false,
+  "disk_config": {
+      "config_type": "default_layout",
+      "device_modifications": [
+          {
+              "device": "/dev/nvme0n1",
+              "partitions": [
+                  {
+                      "btrfs": [],
+                      "dev_path": null,
+                      "flags": [
+                          "Boot",
+                          "ESP"
+                      ],
+                      "fs_type": "fat32",
+                      "mount_options": [],
+                      "mountpoint": "/boot",
+                      "obj_id": "ca86e0b4-4817-4c09-a1ec-cdbcfebeaf59",
+                      "size": {
+                          "sector_size": {
+                              "unit": "B",
+                              "value": 512
+                          },
+                          "unit": "MiB",
+                          "value": 512
+                      },
+                      "start": {
+                          "sector_size": {
+                              "unit": "B",
+                              "value": 512
+                          },
+                          "unit": "MiB",
+                          "value": 1
+                      },
+                      "status": "create",
+                      "type": "primary"
+                  },
+                  {
+                      "btrfs": [
+                          {
+                              "compress": false,
+                              "mountpoint": "/",
+                              "name": "@",
+                              "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/home",
+                              "name": "@home",
+                              "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/var/log",
+                              "name": "@log",
+                              "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/var/cache/pacman/pkg",
+                              "name": "@pkg",
+                              "nodatacow": false
+                          },
+                          {
+                              "compress": false,
+                              "mountpoint": "/.snapshots",
+                              "name": "@.snapshots",
+                              "nodatacow": false
+                          }
+                      ],
+                      "dev_path": null,
+                      "flags": [],
+                      "fs_type": "btrfs",
+                      "mount_options": [
+                          "compress=zstd"
+                      ],
+                      "mountpoint": null,
+                      "obj_id": "0729486f-5803-4d4f-87fb-d48c8bbbf6c0",
+                      "size": {
+                          "sector_size": {
+                              "unit": "B",
+                              "value": 512
+                          },
+                          "unit": "B",
+                          "value": 1023670575104
+                      },
+                      "start": {
+                          "sector_size": {
+                              "unit": "B",
+                              "value": 512
+                          },
+                          "unit": "B",
+                          "value": 537919488
+                      },
+                      "status": "create",
+                      "type": "primary"
+                  }
+              ],
+              "wipe": true
+          }
+      ]
+  },
+  "disk_encryption": null,
+  "hostname": "waveguide",
+  "kernels": [
+      "linux"
+  ],
+  "locale_config": {
+      "kb_layout": "us",
+      "sys_enc": "UTF-8",
+      "sys_lang": "en_CA.UTF-8"
+  },
+  "mirror_config": {
+      "custom_mirrors": [],
+      "mirror_regions": {
+          "Canada": [
+              "https://muug.ca/mirror/archlinux/$repo/os/$arch",
+              "https://mirror2.evolution-host.com/archlinux/$repo/os/$arch",
+              "https://mirror.xenyth.net/archlinux/$repo/os/$arch",
+              "https://mirror.scd31.com/arch/$repo/os/$arch",
+              "https://mirror.quantum5.ca/archlinux/$repo/os/$arch",
+              "https://mirror.csclub.uwaterloo.ca/archlinux/$repo/os/$arch",
+              "https://mirror.cpsc.ucalgary.ca/mirror/archlinux.org/$repo/os/$arch",
+              "https://mirror.0xem.ma/arch/$repo/os/$arch",
+              "https://dl.ptse.host/archlinux/$repo/os/$arch",
+              "https://ca.mirrors.cicku.me/archlinux/$repo/os/$arch",
+              "https://arch.mirror.winslow.cloud/$repo/os/$arch",
+              "http://muug.ca/mirror/archlinux/$repo/os/$arch",
+              "http://mirror2.evolution-host.com/archlinux/$repo/os/$arch",
+              "http://mirror.xenyth.net/archlinux/$repo/os/$arch",
+              "http://mirror.scd31.com/arch/$repo/os/$arch",
+              "http://mirror.quantum5.ca/archlinux/$repo/os/$arch",
+              "http://mirror.its.dal.ca/archlinux/$repo/os/$arch",
+              "http://mirror.csclub.uwaterloo.ca/archlinux/$repo/os/$arch",
+              "http://mirror.cpsc.ucalgary.ca/mirror/archlinux.org/$repo/os/$arch",
+              "http://mirror.0xem.ma/arch/$repo/os/$arch",
+              "http://ca.mirrors.cicku.me/archlinux/$repo/os/$arch",
+              "http://archlinux.mirror.rafal.ca/$repo/os/$arch"
+          ]
+      }
+  },
+  "network_config": {
+      "type": "nm"
+  },
+  "no_pkg_lookups": false,
+  "ntp": true,
+  "offline": false,
+  "packages": [],
+  "parallel downloads": 0,
+  "profile_config": {
+      "gfx_driver": null,
+      "greeter": null,
+      "profile": {
+          "custom_settings": {},
+          "details": [],
+          "main": "Minimal"
+      }
+  },
+  "script": "guided",
+  "silent": false,
+  "skip_ntp": false,
+  "skip_version_check": false,
+  "swap": true,
+  "timezone": "America/Toronto",
+  "uki": true,
+  "version": "2.7.1"
+}
