@@ -29,3 +29,15 @@ cp nginx.conf /etc/nginx/nginx.conf
 wordlistctl fetch \* -g usernames passwords discovery fuzzing misc
 mkdir -p /srv/{webdav,http,upload}
 chown -R http:http /srv/upload
+groupadd ligolo
+
+# CONFIGURE THE USER
+
+usermod -aG ligolo hackerman
+usermod -aG video hackerman
+usermod -aG wheel hackerman
+chsh --shell /usr/bin/fish hackerman
+
+cat ligolo.service > /home/hackerman/.config/systemd/user/ligolo.service
+chown hackerman:hackerman /home/hackerman/.config/systemd/user/ligolo.service
+sudo --user hackerman systemctl --user enable ligolo

@@ -1,0 +1,6 @@
+[NetDev]
+Name=ligolo
+Kind=tun
+
+[Tun]
+Group=ligolo
