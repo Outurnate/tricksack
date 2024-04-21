@@ -3,3 +3,7 @@ powershell
 visual-studio-code-bin
 waypipe
 nginx-mainline-mod-dav-ext
+intel-opencl-runtime
+tun2socks-bin
+python-impacket-git
+python-certipy

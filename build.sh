@@ -30,6 +30,11 @@ popd > /dev/null || exit
 
 pushd $OUTPUT/win/64 > /dev/null || exit
 fetch_from_zip ligolo.exe https://github.com/nicocha30/ligolo-ng/releases/download/v0.5.2/ligolo-ng_agent_0.5.2_windows_amd64.zip agent.exe
+fetch_from_zip x64/mimikatz.exe https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip mimikatz.exe
+popd > /dev/null || exit
+
+pushd $OUTPUT/win/32 > /dev/null || exit
+fetch_from_zip Win32/mimikatz.exe https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20220919/mimikatz_trunk.zip mimikatz.exe
 popd > /dev/null || exit
 
 pushd $OUTPUT/win/shell > /dev/null || exit
@@ -56,7 +61,7 @@ cp src/PwnKit.sh $OUTPUT/lin/shell/pwnkit.sh
 cp src/gameoverlay.sh $OUTPUT/lin/shell/gameoverlay.sh
 
 cp /usr/share/windows/peass/winPEASx64.exe $OUTPUT/win/64/winpeas.exe
-cp /usr/share/windows/mimikatz/Win32/mimikatz.exe $OUTPUT/win/64/mimikatz.exe
+cp /usr/share/windows/mimikatz/x64/mimikatz.exe $OUTPUT/win/64/mimikatz.exe
 cp /usr/share/windows/windows-binaries/nc.exe $OUTPUT/win/64/nc.exe
 cp /usr/share/windows/sysinternals-suite/psexec64.exe $OUTPUT/win/64/psexec.exe
 cp /usr/share/windows/sysinternals-suite/psloggedon64.exe $OUTPUT/win/64/psloggedon.exe
@@ -75,6 +80,8 @@ cp /usr/share/bloodhound/Collectors/SharpHound.ps1 $OUTPUT/win/shell/sharphound.
 cp /usr/share/peass/linPEAS/linpeas_linux_amd64 $OUTPUT/lin/64/linpeas
 cp /usr/share/peass/linPEAS/linpeas_linux_386 $OUTPUT/lin/32/linpeas
 cp /usr/share/peass/linPEAS/linpeas.sh $OUTPUT/lin/shell/linpeas.sh
+
+x86_64-w64-mingw32-gcc src/dave2.c -o $OUTPUT/win/64/dave2.exe
 
 chmod -R +x $OUTPUT/lin
 

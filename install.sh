@@ -23,21 +23,10 @@ sudo --user aur /opt/aur/.cargo/bin/rua install $(xargs < /root/aur.txt)
 
 # CONFIGURE THE SYSTEM
 
-systemctl enable sddm.service nginx.service sshd.service
+systemctl enable sddm.service nginx.service sshd.service neo4j.service libvirtd.socket
 setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
+setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nbtscan
 cp nginx.conf /etc/nginx/nginx.conf
 wordlistctl fetch \* -g usernames passwords discovery fuzzing misc
 mkdir -p /srv/{webdav,http,upload}
 chown -R http:http /srv/upload
-groupadd ligolo
-
-# CONFIGURE THE USER
-
-usermod -aG ligolo hackerman
-usermod -aG video hackerman
-usermod -aG wheel hackerman
-chsh --shell /usr/bin/fish hackerman
-
-cat ligolo.service > /home/hackerman/.config/systemd/user/ligolo.service
-chown hackerman:hackerman /home/hackerman/.config/systemd/user/ligolo.service
-sudo --user hackerman systemctl --user enable ligolo
